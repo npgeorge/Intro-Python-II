@@ -2,9 +2,10 @@
 # currently.
 
 class Player:
-    def __init__(self, name, current_room):
+    def __init__(self, name, current_room, inventory=None):
         self.name = name
         self.current_room: List[Room] = current_room
+        self.inventory = []
     
     def __str__(self):
         return f"Hello {self.name}! You are located {[self.current_room]}."
