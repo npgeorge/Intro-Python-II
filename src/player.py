@@ -8,3 +8,6 @@ class Player:
     
     def __str__(self):
         return f"Hello {self.name}! You are located {[self.current_room]}."
+
+    # add the capability to add Items to the player's inventory
+    # this can be a list of items in the Player class
