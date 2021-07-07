@@ -1,0 +1,108 @@
+from typing import List
+
+# __str__ vs. __repr__
+class Node:
+    def __init__(self, value):
+        self.value = value
+​
+    def __str__(self):
+        return f'<Node {self.value}>'
+​
+    def __repr__(self):
+        return f'Node({repr(self.value)})'
+​
+n = [
+    Node('Beej'),
+    Node(22),
+    Node(32),
+    Node(42)
+]
+​
+print(n)
+​
+# sys.argv
+import sys
+​
+print(sys.argv)
+​
+if len(sys.argv) == 0:
+    month = cur_month
+    year = cur_year
+​
+elif len(sys.argv) == 1:
+    month = sys.argv[1]
+    year = cur_year
+
+# default args
+d_value = 1
+​
+def foo(a, b, c=9, d=None):
+    global d_value
+​
+    if d is None:
+        d = d_value
+​
+    d_value += 1
+    
+    print(f'{a}, {b}, {c}, {d}')
+​
+​
+foo(1, 2, 3, 4)
+foo(1, 2)
+foo(1, 2, 8, 9)
+foo(1, 2)
+foo(1, 2)
+
+# args & kwargs
+def foo(x, y, *args, **kwargs):
+    print(f'{x} {y}')
+    print(args)
+    print(kwargs)
+​
+foo(1, y=2, xyzzy=999)
+foo(1, 2, 3, 4, a=12, b=13)
+
+
+# classes
+
+class Product:
+    def __init__(self, name: str, price: float):
+        print("Setting name and price")
+        self.name = name
+        self.price = price
+
+    def __str__(self):
+        return f"{self.name}\t${self.price}"
+
+class Category:
+
+    def __init__(self, name, products: List[Product]=None):
+        self.name = name
+        #self.products = products
+        self.products: List[Product] = products
+
+    def __str__(self):
+        return "No products available in " + self.name
+
+
+
+# Sprint Challenge reference
+
+# Object Hierarchies
+
+#Organisms lecture example
+
+#super class
+class Organism:
+    pass
+
+#sub class
+class Animal(Organism):
+    pass
+
+#sub class
+class Plant(Organism):
+    pass
+
+class Mammal(Animal):
+    pass
